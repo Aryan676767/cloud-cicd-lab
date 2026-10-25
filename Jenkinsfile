@@ -11,15 +11,15 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                bat 'python --version'
-                bat 'python -m pip install -r requirements.txt'
-                bat 'python -m py_compile app.py'
+                sh 'python3 --version'
+                sh 'python3 -m pip --version'
+                sh 'python3 -m py_compile app.py'
             }
         }
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t cloud-cicd-lab:latest .'
+                sh 'docker build -t cloud-cicd-lab:latest .'
             }
         }
     }
